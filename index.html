@@ -60,25 +60,20 @@
         splitInput.addEventListener("input",calculate);
         
         function calculate(){
-            var bill = 0;
-            var tipAmmount = 0;
-            var total;        
-            var billEach;
-            var tipEach;
             var splitNumber = document.getElementById("splitInput").value;
             var tipNumber = document.getElementById("tipInput").value;
+
             if (splitNumber>1){
                 document.getElementById("splitValue").innerHTML = splitNumber +" People";
             } else{
                 document.getElementById("splitValue").innerHTML = splitNumber +" Person";
             }
-                      
-            bill = document.getElementById("yourBill").value;
-            total = (bill * (1 + tipNumber/100)).toFixed(2);
-            tipAmmount = (bill * (tipNumber/100)).toFixed(2);
-            billEach = (total/splitNumber).toFixed(2);
-            tipEach = (tipAmmount/splitNumber).toFixed(2);
-
+            
+            var bill = document.getElementById("yourBill").value;
+            var total = (bill * (1 + tipNumber/100)).toFixed(2);
+            var tipAmmount = (bill * (tipNumber/100)).toFixed(2);
+            var billEach = (total/splitNumber).toFixed(2);
+            var tipEach = (tipAmmount/splitNumber).toFixed(2);
             document.getElementById("tipPercent").innerHTML = tipNumber + "%";
             document.getElementById("totalWithTip").innerHTML = "£"+ total;
             document.getElementById("splitBill").innerHTML = "£" + billEach;
